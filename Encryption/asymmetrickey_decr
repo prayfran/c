@@ -1,0 +1,34 @@
+#!/bin/bash
+file1name="$1"
+file2name="$2"
+firstnumber=""
+number=""
+
+while IFS= read -r -n1 numbers
+do
+   if [[ $numbers == "," ]]; then
+      firstnumber=$number
+      number=""
+   else 
+      number=${number}${numbers}
+   fi
+   
+done < "$file1name"
+secondnumber=$number
+
+com=""
+while IFS= read -r -n1 char
+do
+   if [[ "$char" == " " ]]; then
+    ascii=`printf "%d" "'$com"`
+	result=`bc <<< $com^$firstnumber%$secondnumber`
+	c=$(printf \\$(printf '%03o' $result))
+	echo -n "$c" >> "Parker-Franks.plaintext"
+	com=""
+   elif [[ $char == "\n" ]]; then 
+	echo -n " " >> "Parker-Franks.plaintext"   
+   else 
+     com=${com}${char}
+   fi
+done < "$file2name"
+	echo -n "." >> "Parker-Franks.plaintext"

@@ -1,0 +1,23 @@
+Parker Franks
+
+asymmetrickey_encr
+
+This program will take the first argument as the file containing the public key to use for the encryption of the second file which 
+will contain the english to encrypt. Below is the command to run asymmetrickey_encr
+ 
+dos2unix asymmetrickey_encr ; clear ; ./asymmetrickey_encr Parker-Franks.publickey text.txt
+
+
+
+asymmetrickey_decr
+
+This program will take the first argument as the file containing the private key to use for the decription of the second file which 
+will contain encrypted text to decrypt. Below is the command to run asymmetrickey_decr
+
+dos2unix asymmetrickey_decr ; clear ; ./asymmetrickey_decr Parker-Franks.privatekey Parker-Franks.ciphertext
+
+
+dos2unix is used to make sure that the hanging carriages from windows gets removed
+ 
+
+In the encrypted file at the end of each line is a trailing white space that the decryption software uses to create it back into plaintext.

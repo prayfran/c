@@ -1,0 +1,11 @@
+ProducerConsumer
+By: Parker Franks
+
+The Producer Consumer Class is the main method for the rest of the classes, creating objects for each class and running the program.
+The Bounded Buffer handles the amount of items produced and consumed by only letting 1000 objects exit inside of the buffer at a time.
+The Producer produces items to be put into the buffer using a random number generator and the put method inside of BoundedBuffer.
+The Consumer consumes items from the bounded buffer using the get method inside of BoundedBuffer.
+
+To compile just type make all into the terminal at the location of the folder called ProducerConsumer.
+To run just type java ProducerConsumer into the terminal after compiling.
+To clean up the directory type make clean into the terminal at the location of the folder.

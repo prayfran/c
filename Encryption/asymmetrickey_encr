@@ -1,0 +1,39 @@
+#!/bin/bash
+file1name="$1"
+file2name="$2"
+echo -n "" > "Parker-Franks.ciphertext"
+
+firstnumber=""
+number=""
+
+while IFS= read -r -n1 numbers
+do
+   if [[ $numbers == "," ]]; then
+      firstnumber=$number
+      number=""
+   else 
+      number=${number}${numbers}
+   fi
+   
+done < "$file1name"
+secondnumber=$number
+
+
+
+while IFS= read -r -n1 char
+do
+   if [[ $char == " " ]]; then
+    echo \ >> "Parker-Franks.ciphertext"
+    character=$char
+    ascii=`printf "%d" "'$character"`
+	result=`bc <<< $ascii^$firstnumber%$secondnumber`
+	echo -n "$result" >> "Parker-Franks.ciphertext"
+    echo \ >> "Parker-Franks.ciphertext"
+   elif [[ $char != "." ]]; then
+    character=$char
+    ascii=`printf "%d" "'$character"`
+	result=`bc <<< $ascii^$firstnumber%$secondnumber`
+	echo -n "$result" >> "Parker-Franks.ciphertext"
+	echo -n " " >> "Parker-Franks.ciphertext"
+   fi
+done < "$file2name"

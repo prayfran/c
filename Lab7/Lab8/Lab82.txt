@@ -1,0 +1,16 @@
+N=200
+elapsed time = 0.000473
+N=200
+elapsed time = 0.000445
+N=200
+elapsed time = 0.000458
+N=200
+elapsed time = 0.000449
+N=200
+elapsed time = 0.000444
+N=200
+elapsed time = 0.000429
+N=200
+elapsed time = 0.000420
+N=200
+elapsed time = 0.000426
